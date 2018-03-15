@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.postgres.fields import JSONField
 
 # Create your models here.
 class Actor(models.Model):
@@ -37,13 +38,12 @@ class Film(models.Model):
 	description = models.TextField()
 	release_year = models.IntegerField()
 	language_url = models.OneToOneField(Language, db_column='language_id')
-	original_language_id = models.IntegerField()
 	rental_duration = models.IntegerField()
 	rental_rate = models.DecimalField(max_digits=4, decimal_places=2)
 	length = models.IntegerField()
 	replacement_cost = models.DecimalField(max_digits=5, decimal_places=2)
 	rating = models.CharField(max_length=5, choices=(('G', 'General'), ('PG', 'Parental Guidance'), ('PG-13', 'Parental Guidance 13'), ('R', 'Rated'), ('NC-17', 'NC-17')))
-	special_features = models.TextField()
+	special_features = models.JSONField()
 	actors = models.ManyToManyField(Actor, through='FilmActor')
 	class Meta:
 		db_table = 'film'
@@ -130,7 +130,7 @@ class Customer(models.Model):
 	email = models.CharField(max_length=50)
 	address = models.ForeignKey(Address, db_column='address_id', related_name='customers')
 	active = models.IntegerField()
-	create_date = models.DateTimeField()
+	create_date = models.DateField()
 	last_update = models.DateTimeField()
 	class Meta:
 		db_table = 'customer'

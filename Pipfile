@@ -9,7 +9,9 @@ name = "pypi"
 
 django = "*"
 djangorestframework = "*"
-mysqlclient = "*"
+"psycopg2" = "*"
+django-heroku = "*"
+gunicorn = "*"
 
 
 [dev-packages]
@@ -18,4 +20,4 @@ mysqlclient = "*"
 
 [requires]
 
-python_version = "3.5.2"
+python_version = "3.6"

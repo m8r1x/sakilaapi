@@ -27,8 +27,7 @@ class FilmSerializer(serializers.HyperlinkedModelSerializer):
 		fields = (
 			'url', 'title', 'description', 'release_year', 'length',
 			'rating', 'rental_rate', 'rental_duration', 'replacement_cost',
-			'original_language_id', 'special_features','actors',
-			'category_url', 'language_url'
+			'special_features','actors', 'category_url', 'language_url'
 		)
 
 class FilmActorSerializer(serializers.HyperlinkedModelSerializer):
