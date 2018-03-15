@@ -43,7 +43,7 @@ class Film(models.Model):
 	length = models.IntegerField()
 	replacement_cost = models.DecimalField(max_digits=5, decimal_places=2)
 	rating = models.CharField(max_length=5, choices=(('G', 'General'), ('PG', 'Parental Guidance'), ('PG-13', 'Parental Guidance 13'), ('R', 'Rated'), ('NC-17', 'NC-17')))
-	special_features = models.JSONField()
+	special_features = JSONField()
 	actors = models.ManyToManyField(Actor, through='FilmActor')
 	class Meta:
 		db_table = 'film'
